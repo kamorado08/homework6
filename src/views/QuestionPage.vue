@@ -38,17 +38,21 @@ const shuffle = (array) => {
   return array
 }
 
-
-
 </script>
 
 <template>
 
-  <div v-if="question" class="">
+  <div v-if="question" class="flex h-full w-full flex-col items-center gap-8 p-10">
     <BaseTitle> {{ question.category }}</BaseTitle>
-      {{ question.question }}
-<!--  using html operator -->
-      <div v-for="answer in answers" v-html="answer.answer" :key="answer.id" class=""></div>
+      <!-- {{ question.question }} -->
+      <div v-html="question.question" class="text-center text-2xl font-bold "></div>
+      <div class=" grid w-full flex-grow grid-cols-2 gap-8">
+        <div v-for="answer in answers" 
+        v-html="answer.answer" 
+        :key="answer.id" 
+        class="bg-white flex items-center justify-center text-4xl rounded-lg text-purple-500 py-10 px-2">
+        </div>
+      </div>
   </div>
   <div v-else class="">
     Loading...
